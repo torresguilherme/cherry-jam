@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 # stats
-var speed = 350
+var speed = 18000
 var shot_force = 300
 var blink_distance = 200
 var hp = 0
@@ -53,19 +53,21 @@ func _process(delta):
 	### MOVEMENT
 	#############################################
 	if Input.is_action_pressed("walk_right") && !disable:
-		translate(Vector2(speed * delta, get_linear_velocity().y * delta))
+		if on_ground:
+			set_linear_velocity(Vector2(speed * delta, 0))
+			cam = anima_mode.WALK
 		cas = anima_side.RIGHT
-		if on_ground:
-			cam = anima_mode.WALK
-	elif cas == anima_side.RIGHT:
-		cam = anima_mode.IDLE
+	else:
+		if cas == anima_side.RIGHT:
+			cam = anima_mode.IDLE
 	if Input.is_action_pressed("walk_left") && !disable:
-		translate(Vector2(-speed * delta, get_linear_velocity().y * delta))
-		cas = anima_side.LEFT
 		if on_ground:
+			set_linear_velocity(Vector2(-speed * delta, 0))
 			cam = anima_mode.WALK
-	elif cas == anima_side.LEFT:
-		cam = anima_mode.IDLE
+		cas = anima_side.LEFT
+	else:
+		if cas == anima_side.LEFT:
+			cam = anima_mode.IDLE
 	if !on_ground:
 		cam = anima_mode.AIR
 	
