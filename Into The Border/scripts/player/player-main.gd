@@ -4,7 +4,7 @@ extends RigidBody2D
 var speed = 350
 var shot_force = 300
 var blink_distance = 200
-var hp
+var hp = 0
 
 #cooldowns
 var fast_shot_cooldown = .1
@@ -17,19 +17,28 @@ var last_blink = 0
 var left = 0
 var right = 0
 var vert_speed = 0
-var in_ground = true
 var saved_speed = 0
 var disable = false
+
+#animation control
+var on_ground = true
+enum anima_side {RIGHT, LEFT}
+enum anima_mode {IDLE, WALK, AIR}
+var cas = anima_side.RIGHT
+var cam = anima_mode.IDLE
 
 #bullets
 var fast_bullet = preload("res://nodes/bullet/fast-bullet.tscn")
 var heavy_bullet = preload("res://nodes/bullet/heavy-bullet.tscn")
 var fbi
 var hbi
+var module
+var vector
 
 #onready loads
 onready var level = get_node("../")
 onready var anim = get_node("anim")
+onready var move_anim = get_node("move-anim")
 onready var gun = get_node("gun")
 onready var hitbox = get_node("hitbox")
 onready var shootpoint = gun.get_node("shoot-point")
@@ -79,8 +88,8 @@ func fast_shot():
 	fbi = fast_bullet.instance()
 	fbi.set_global_pos(shootpoint.get_global_pos())
 	fbi.look_at(get_global_mouse_pos())
-	var module = sqrt(pow(gun.get_global_pos().x - get_global_mouse_pos().x, 2) + pow(gun.get_global_pos().y - get_global_mouse_pos().y, 2))
-	var vector = Vector2((gun.get_global_pos().x - get_global_mouse_pos().x)/module, (gun.get_global_pos().y - get_global_mouse_pos().y)/module)
+	module = sqrt(pow(gun.get_global_pos().x - get_global_mouse_pos().x, 2) + pow(gun.get_global_pos().y - get_global_mouse_pos().y, 2))
+	vector = Vector2((gun.get_global_pos().x - get_global_mouse_pos().x)/module, (gun.get_global_pos().y - get_global_mouse_pos().y)/module)
 	fbi.direction = -vector
 	level.add_child(fbi)
 
@@ -88,10 +97,9 @@ func heavy_shot():
 	hbi = heavy_bullet.instance()
 	hbi.set_global_pos(shootpoint.get_global_pos())
 	hbi.look_at(get_global_mouse_pos())
-	var module = sqrt(pow(gun.get_global_pos().x - get_global_mouse_pos().x, 2) + pow(gun.get_global_pos().y - get_global_mouse_pos().y, 2))
-	var vector = Vector2((gun.get_global_pos().x - get_global_mouse_pos().x)/module, (gun.get_global_pos().y - get_global_mouse_pos().y)/module)
+	module = sqrt(pow(gun.get_global_pos().x - get_global_mouse_pos().x, 2) + pow(gun.get_global_pos().y - get_global_mouse_pos().y, 2))
+	vector = Vector2((gun.get_global_pos().x - get_global_mouse_pos().x)/module, (gun.get_global_pos().y - get_global_mouse_pos().y)/module)
 	hbi.direction = -vector
-	# adiciona força na direcao contraria do tiro
 	set_applied_force(Vector2(0, 0))
 	set_linear_velocity(Vector2(0, 0))
 	apply_impulse(get_global_pos(), vector * shot_force)
@@ -111,3 +119,6 @@ func LoadSpeed():
 	set_sleeping(false)
 	disable = false
 	set_linear_velocity(saved_speed)
+
+func TakeDamage(damage):
+	hp -= damage
