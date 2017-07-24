@@ -1,45 +1,45 @@
 [gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/bullet/player-bullet1.gd" type="Script" id=1]
-[ext_resource path="res://sprites/bullet/fast_bullet.png" type="Texture" id=2]
+[ext_resource path="res://sprites/bullet/heavy_bullet.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -5.96471, -3.82971, -1.93702, -7.8574, 1.95178, -7.8574, 5.91002, -3.89915, 5.91002, 3.809, 2.16011, 7.97557, -1.93702, 7.97557, -6.10359, 4.01733 )
+points = Vector2Array( -8.02983, -1.9216, -5.93691, -5.90326, -1.95524, -7.94514, 1.92433, -7.94514, 5.90599, -6.0564, 7.94787, -2.02369, 7.94787, 1.85588, 6.11018, 5.99069, 2.07747, 8.08361, -1.90419, 8.08361, -5.93691, 6.09278, -7.92774, 2.06007 )
 
 [sub_resource type="Animation" id=2]
 
 resource/name = "destruct"
-length = 0.3
+length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:visibility/visible")
+tracks/0/path = NodePath("blast:config/emitting")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.1 ),
-"transitions": FloatArray( 1, 1 ),
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("blast:config/emitting")
+tracks/1/path = NodePath("sprite:visibility/visible")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = {
-"times": FloatArray( 0, 0.3 ),
+"times": FloatArray( 0, 0.5 ),
 "transitions": FloatArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -52,10 +52,10 @@ tracks/2/keys = {
 
 [sub_resource type="ColorRamp" id=3]
 
-offsets = FloatArray( 0, 0.00584795, 0.233918, 0.51462, 0.77193, 0.865497, 0.888889, 1 )
-colors = ColorArray( 0, 0, 0, 1, 0.559616, 0.811556, 0.878906, 1, 0.372253, 0.781281, 0.890625, 1, 0.169189, 0.645979, 0.773438, 1, 0.060684, 0.545764, 0.675439, 1, 0.0680396, 0.272667, 0.75731, 1, 0.0698785, 0.280036, 0.777778, 1, 0.0201416, 0.0837421, 0.234375, 1 )
+offsets = FloatArray( 0.00584795, 0.339181, 0.578947, 0.777778, 1 )
+colors = ColorArray( 0.984466, 0.992188, 0.00387573, 1, 0.929688, 0.511033, 0.141632, 1, 0.685033, 0.226846, 0.10436, 1, 1, 0, 0, 1, 0, 0, 0, 1 )
 
-[node name="fast-bullet" type="Area2D"]
+[node name="heavy-bullet" type="Area2D"]
 
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -75,7 +75,7 @@ texture = ExtResource( 2 )
 [node name="collider" type="CollisionPolygon2D" parent="."]
 
 build_mode = 0
-polygon = Vector2Array( -5.96471, -3.82971, -1.93702, -7.8574, 1.95178, -7.8574, 5.91002, -3.89915, 5.91002, 3.809, 2.16011, 7.97557, -1.93702, 7.97557, -6.10359, 4.01733 )
+polygon = Vector2Array( -8.02983, -1.9216, -5.93691, -5.90326, -1.95524, -7.94514, 1.92433, -7.94514, 5.90599, -6.0564, 7.94787, -2.02369, 7.94787, 1.85588, 6.11018, 5.99069, 2.07747, 8.08361, -1.90419, 8.08361, -5.93691, 6.09278, -7.92774, 2.06007 )
 shape_range = Vector2( 0, 0 )
 trigger = false
 
@@ -92,13 +92,12 @@ autoplay = ""
 
 [node name="blast" type="Particles2D" parent="."]
 
-transform/pos = Vector2( -0.208328, -0.555544 )
 config/amount = 32
-config/lifetime = 3.0
-config/emit_timeout = 1.0
+config/lifetime = 2.0
+config/emit_timeout = 0.5
 config/emitting = false
 config/process_mode = 1
-config/explosiveness = 0.3
+config/explosiveness = 0.5
 params/direction = 0.0
 params/spread = 360.0
 params/linear_velocity = 20.0
@@ -110,13 +109,13 @@ params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 0.0
 params/initial_angle = 0.0
-params/initial_size = 10.0
-params/final_size = 1.0
+params/initial_size = 20.0
+params/final_size = 2.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 color/color_ramp = SubResource( 3 )
 
-[connection signal="area_enter" from="." to="." method="_on_fastbullet_area_enter"]
+[connection signal="area_enter" from="." to="." method="_on_heavybullet_area_enter"]
 
 

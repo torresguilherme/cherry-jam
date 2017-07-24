@@ -2,7 +2,7 @@ extends RigidBody2D
 
 # stats
 var speed = 350
-var shot_force = 250
+var shot_force = 300
 var blink_distance = 200
 var hp
 
@@ -23,7 +23,7 @@ var disable = false
 
 #bullets
 var fast_bullet = preload("res://nodes/bullet/fast-bullet.tscn")
-var heavy_bullet
+var heavy_bullet = preload("res://nodes/bullet/heavy-bullet.tscn")
 var fbi
 var hbi
 
@@ -31,10 +31,11 @@ var hbi
 onready var level = get_node("../")
 onready var anim = get_node("anim")
 onready var gun = get_node("gun")
+onready var hitbox = get_node("hitbox")
 onready var shootpoint = gun.get_node("shoot-point")
 
 func _ready():
-	add_to_group(global.PLAYER_GROUP)
+	hitbox.add_to_group(global.PLAYER_GROUP)
 	set_process(true)
 
 func _process(delta):
@@ -75,25 +76,38 @@ func _process(delta):
 		last_shot -= delta
 
 func fast_shot():
-	#botar a direcao do tiro (unitarizar o vetor da diferenca entre a posicao do mouse e do centro da arma)
 	fbi = fast_bullet.instance()
 	fbi.set_global_pos(shootpoint.get_global_pos())
 	fbi.look_at(get_global_mouse_pos())
+	var module = sqrt(pow(gun.get_global_pos().x - get_global_mouse_pos().x, 2) + pow(gun.get_global_pos().y - get_global_mouse_pos().y, 2))
+	var vector = Vector2((gun.get_global_pos().x - get_global_mouse_pos().x)/module, (gun.get_global_pos().y - get_global_mouse_pos().y)/module)
+	fbi.direction = -vector
 	level.add_child(fbi)
-	pass
 
 func heavy_shot():
-	pass
+	hbi = heavy_bullet.instance()
+	hbi.set_global_pos(shootpoint.get_global_pos())
+	hbi.look_at(get_global_mouse_pos())
+	var module = sqrt(pow(gun.get_global_pos().x - get_global_mouse_pos().x, 2) + pow(gun.get_global_pos().y - get_global_mouse_pos().y, 2))
+	var vector = Vector2((gun.get_global_pos().x - get_global_mouse_pos().x)/module, (gun.get_global_pos().y - get_global_mouse_pos().y)/module)
+	hbi.direction = -vector
+	# adiciona força na direcao contraria do tiro
+	set_applied_force(Vector2(0, 0))
+	set_linear_velocity(Vector2(0, 0))
+	apply_impulse(get_global_pos(), vector * shot_force)
+	level.add_child(hbi)
 
 func Blink(dir):
 	set_pos(get_pos() + Vector2(blink_distance * dir, 0))
 
 func SaveSpeed():
 	saved_speed = get_linear_velocity()
+	hitbox.remove_from_group(global.PLAYER_GROUP)
 	set_sleeping(true)
 	disable = true
 
 func LoadSpeed():
+	hitbox.add_to_group(global.PLAYER_GROUP)
 	set_sleeping(false)
 	disable = false
 	set_linear_velocity(saved_speed)
