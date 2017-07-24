@@ -13,6 +13,7 @@
 [node name="player" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 512, 43 )
+gravity_scale = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
@@ -113,6 +114,8 @@ transform/pos = Vector2( 768, 258 )
 transform/pos = Vector2( 896, 258 )
 
 [node name="aesth" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="torch" parent="aesth" instance=ExtResource( 5 )]
 

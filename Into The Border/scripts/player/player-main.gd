@@ -2,7 +2,7 @@ extends RigidBody2D
 
 # stats
 var speed = 18000
-var shot_force = 300
+var shot_force = 400
 var blink_distance = 200
 var hp = 0
 
