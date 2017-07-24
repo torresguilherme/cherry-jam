@@ -21,7 +21,7 @@ var saved_speed = 0
 var disable = false
 
 #animation control
-var on_ground = true
+var on_ground = false
 enum anima_side {RIGHT, LEFT}
 enum anima_mode {IDLE, WALK, AIR}
 var cas = anima_side.RIGHT
@@ -37,6 +37,7 @@ var vector
 
 #onready loads
 onready var level = get_node("../")
+onready var sprite = get_node("sprite")
 onready var anim = get_node("anim")
 onready var move_anim = get_node("move-anim")
 onready var gun = get_node("gun")
@@ -53,8 +54,41 @@ func _process(delta):
 	#############################################
 	if Input.is_action_pressed("walk_right") && !disable:
 		translate(Vector2(speed * delta, get_linear_velocity().y * delta))
+		cas = anima_side.RIGHT
+		if on_ground:
+			cam = anima_mode.WALK
+	elif cas == anima_side.RIGHT:
+		cam = anima_mode.IDLE
 	if Input.is_action_pressed("walk_left") && !disable:
 		translate(Vector2(-speed * delta, get_linear_velocity().y * delta))
+		cas = anima_side.LEFT
+		if on_ground:
+			cam = anima_mode.WALK
+	elif cas == anima_side.LEFT:
+		cam = anima_mode.IDLE
+	if !on_ground:
+		cam = anima_mode.AIR
+	
+	if cas == anima_side.RIGHT:
+		if cam == anima_mode.IDLE:
+			if move_anim.get_current_animation() != "idle-r":
+				move_anim.set_current_animation("idle-r")
+		elif cam == anima_mode.WALK:
+			if move_anim.get_current_animation() != "walk-r":
+				move_anim.set_current_animation("walk-r")
+		else:
+			if move_anim.get_current_animation() != "air-r":
+				move_anim.set_current_animation("air-r")
+	else:
+		if cam == anima_mode.IDLE:
+			if move_anim.get_current_animation() != "idle-l":
+				move_anim.set_current_animation("idle-l")
+		elif cam == anima_mode.WALK:
+			if move_anim.get_current_animation() != "walk-l":
+				move_anim.set_current_animation("walk-l")
+		else:
+			if move_anim.get_current_animation() != "air-l":
+				move_anim.set_current_animation("air-l")
 	
 	#############################################
 	### BLINK

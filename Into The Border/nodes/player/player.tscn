@@ -1,15 +1,16 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://scripts/player/player-main.gd" type="Script" id=1]
-[ext_resource path="res://sprites/player/walk-r1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/player/walk-r2.png" type="Texture" id=2]
 [ext_resource path="res://sprites/player/walk-l1.png" type="Texture" id=3]
-[ext_resource path="res://sprites/player/idle-l.png" type="Texture" id=4]
-[ext_resource path="res://sprites/player/idle-r.png" type="Texture" id=5]
-[ext_resource path="res://sprites/player/walk-l2.png" type="Texture" id=6]
-[ext_resource path="res://sprites/player/walk-l3.png" type="Texture" id=7]
-[ext_resource path="res://sprites/player/walk-r2.png" type="Texture" id=8]
+[ext_resource path="res://sprites/player/walk-r1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/player/idle-l.png" type="Texture" id=5]
+[ext_resource path="res://sprites/player/idle-r.png" type="Texture" id=6]
+[ext_resource path="res://sprites/player/walk-l2.png" type="Texture" id=7]
+[ext_resource path="res://sprites/player/walk-l3.png" type="Texture" id=8]
 [ext_resource path="res://sprites/player/walk-r3.png" type="Texture" id=9]
-[ext_resource path="res://nodes/player/gun.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/player/ground-detector.gd" type="Script" id=10]
+[ext_resource path="res://nodes/player/gun.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -111,7 +112,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 
 resource/name = "air-l"
 length = 1.0
@@ -127,8 +128,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ ExtResource( 3 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:z/z")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 
 resource/name = "air-r"
 length = 1.0
@@ -142,29 +153,21 @@ tracks/0/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 4 ) ]
 }
-
-[sub_resource type="Animation" id=5]
-
-resource/name = "idle-l"
-length = 1.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("sprite:texture")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:z/z")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
-resource/name = "idle-r"
 length = 1.0
 loop = true
 step = 0.1
@@ -177,6 +180,42 @@ tracks/0/keys = {
 "transitions": FloatArray( 1 ),
 "update": 1,
 "values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:z/z")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:z/z")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -193,7 +232,17 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 7 ) ]
+"values": [ ExtResource( 7 ), ExtResource( 8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:z/z")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 2 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -210,7 +259,17 @@ tracks/0/keys = {
 "times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ), ExtResource( 9 ) ]
+"values": [ ExtResource( 2 ), ExtResource( 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:z/z")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0.4 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [node name="player" type="RigidBody2D"]
@@ -285,10 +344,10 @@ autoplay = ""
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/air-l = SubResource( 7 )
-anims/air-r = SubResource( 8 )
-anims/idle-l = SubResource( 5 )
-anims/idle-r = SubResource( 6 )
+anims/air-l = SubResource( 5 )
+anims/air-r = SubResource( 6 )
+anims/idle-l = SubResource( 7 )
+anims/idle-r = SubResource( 8 )
 anims/walk-l = SubResource( 9 )
 anims/walk-r = SubResource( 10 )
 playback/active = true
@@ -296,7 +355,15 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = "idle-r"
 
-[node name="gun" parent="." instance=ExtResource( 10 )]
+[node name="ground-detector" type="RayCast2D" parent="."]
+
+enabled = true
+cast_to = Vector2( 0, 34 )
+layer_mask = 1
+type_mask = 7
+script/script = ExtResource( 10 )
+
+[node name="gun" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( -14, 13 )
 

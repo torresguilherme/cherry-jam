@@ -4,6 +4,7 @@ extends Node
 var PLAYER_GROUP = "player"
 var ENEMY_GROUP = "enemy"
 var CONSTRAINT_GROUP = "constraint"
+var GROUND_GROUP = "ground"
 var E_BULLET_GROUP = "enemy-bullet"
 var P_BULLET_GROUP = "player-bullet"
 
