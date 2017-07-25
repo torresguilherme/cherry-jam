@@ -28,6 +28,8 @@ func _process(delta):
 	#############################################
 	player_pos = player.get_global_position()
 	if get_global_pos().distance_to(player_pos) <= attack_max_distance:
+		in_reach = true
+	else:
 		in_reach = false
 	if in_reach:
 		var vision = get_world_2d().get_direct_space_state().intersect_ray(get_global_pos(), player_pos, [self, hitbox])
