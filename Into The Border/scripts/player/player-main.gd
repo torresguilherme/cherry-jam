@@ -4,7 +4,7 @@ extends RigidBody2D
 var speed = 18000
 var shot_force = 400
 var blink_distance = 200
-var hp = 0
+var hp = 5
 
 #cooldowns
 var fast_shot_cooldown = .1
@@ -12,6 +12,8 @@ var heavy_shot_cooldown = .5
 var last_shot = 0
 var blink_cooldown = .5
 var last_blink = 0
+var invulnerability_time = 1
+var invulnerable = 0
 
 #movement variables
 var left = 0
@@ -40,6 +42,7 @@ onready var level = get_node("../")
 onready var sprite = get_node("sprite")
 onready var anim = get_node("anim")
 onready var move_anim = get_node("move-anim")
+onready var damage_anim = get_node("damage-anim")
 onready var gun = get_node("gun")
 onready var hitbox = get_node("hitbox")
 onready var shootpoint = gun.get_node("shoot-point")
@@ -120,6 +123,9 @@ func _process(delta):
 			last_shot = heavy_shot_cooldown
 	if last_shot > 0:
 		last_shot -= delta
+	
+	if invulnerable > 0:
+		invulnerable -= delta
 
 func fast_shot():
 	fbi = fast_bullet.instance()
@@ -158,6 +164,12 @@ func LoadSpeed():
 	set_linear_velocity(saved_speed)
 
 func TakeDamage(damage):
-	hp -= damage
-	if hp <= 0:
-		print("ded")
+	if invulnerable <= 0:
+		invulnerable = invulnerability_time
+		hp -= damage
+		if hp > 0:
+			damage_anim.play("damage")
+			print("dano")
+		else:
+			#damage_anim.play("death")
+			print("ded")
