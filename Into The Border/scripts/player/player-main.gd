@@ -45,6 +45,7 @@ onready var hitbox = get_node("hitbox")
 onready var shootpoint = gun.get_node("shoot-point")
 
 func _ready():
+	add_to_group(global.PLAYER_BODY_GROUP)
 	hitbox.add_to_group(global.PLAYER_GROUP)
 	set_process(true)
 
