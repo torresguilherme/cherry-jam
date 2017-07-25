@@ -158,3 +158,5 @@ func LoadSpeed():
 
 func TakeDamage(damage):
 	hp -= damage
+	if hp <= 0:
+		print("ded")

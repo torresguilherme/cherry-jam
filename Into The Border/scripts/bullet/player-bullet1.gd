@@ -26,13 +26,13 @@ func CancelMovement():
 func _on_fastbullet_area_enter( area ):
 	if area.is_in_group(global.ENEMY_GROUP):
 		if area.has_method("TakeDamage"):
-			area.TakeDamage(light_damage)
+			area.get_node("../").TakeDamage(light_damage)
 	if area.is_in_group(global.CONSTRAINT_GROUP) || area.is_in_group(global.ENEMY_GROUP):
 		anim.play("destruct")
 
 func _on_heavybullet_area_enter( area ):
 	if area.is_in_group(global.ENEMY_GROUP):
 		if area.has_method("TakeDamage"):
-			area.TakeDamage(heavy_damage)
+			area.get_node("../").TakeDamage(heavy_damage)
 	if area.is_in_group(global.CONSTRAINT_GROUP) || area.is_in_group(global.ENEMY_GROUP):
 		anim.play("destruct")
