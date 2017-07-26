@@ -21,6 +21,8 @@ var right = 0
 var vert_speed = 0
 var saved_speed = 0
 var disable = false
+var can_blink_left = true
+var can_blink_right = true
 
 #animation control
 var on_ground = false
@@ -100,13 +102,17 @@ func _process(delta):
 	### BLINK
 	#############################################
 	if Input.is_action_pressed("blink_left") && last_blink <= 0 && !disable:
-		anim.play("blink-left")
-		last_blink = blink_cooldown
-		pass
+		if can_blink_left:
+			anim.play("blink-left")
+			last_blink = blink_cooldown
+		else:
+			anim.play("fail")
 	elif Input.is_action_pressed("blink_right") && last_blink <= 0 && !disable:
-		anim.play("blink-right")
-		last_blink = blink_cooldown
-		pass
+		if can_blink_right:
+			anim.play("blink-right")
+			last_blink = blink_cooldown
+		else:
+			anim.play("fail")
 	if last_blink > 0:
 		last_blink -= delta
 	

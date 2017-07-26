@@ -6,6 +6,10 @@ var damage = 1
 
 func _ready():
 	add_to_group(global.E_BULLET_GROUP)
+	set_process(true)
+
+func _process(delta):
+	set_global_pos(get_global_pos() + Vector2(direction * speed * delta))
 
 func _on_alienbullet1_area_enter( area ):
 	if area.is_in_group(global.PLAYER_GROUP):

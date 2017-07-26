@@ -188,4 +188,6 @@ params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 color/color_ramp = SubResource( 5 )
 
+[connection signal="area_enter" from="." to="." method="_on_knife_area_enter"]
+
 
