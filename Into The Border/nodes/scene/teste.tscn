@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://nodes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/enemy/alien.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://nodes/scene/components/torch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://nodes/scene/components/stalagmite-1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://nodes/scene/components/stalagmite.tscn" type="PackedScene" id=8]
+[ext_resource path="res://nodes/scene/components/heart.tscn" type="PackedScene" id=9]
 
 [node name="teste" type="Node2D"]
 
@@ -139,5 +140,9 @@ flip_v = true
 
 transform/pos = Vector2( 680.019, 322.5 )
 flip_v = true
+
+[node name="heart" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 261.726, 348.366 )
 
 

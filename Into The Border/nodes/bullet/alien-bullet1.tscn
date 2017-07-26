@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/bullet/alien-bullet.gd" type="Script" id=1]
 [ext_resource path="res://sprites/bullet/alien-bullet1.png" type="Texture" id=2]
+[ext_resource path="res://sfx/alien-bullet-destruct.wav" type="Sample" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -54,6 +55,15 @@ tracks/2/keys = {
 
 offsets = FloatArray( 0, 0.305164, 0.633803, 1 )
 colors = ColorArray( 0.0162506, 0.277344, 0.0386883, 1, 0.091217, 0.382812, 0.116276, 0.906353, 0.246918, 0.726562, 0.288137, 0.60851, 1, 1, 1, 0 )
+
+[sub_resource type="SampleLibrary" id=4]
+
+samples/alien-bullet-destruct = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 3 )
+}
 
 [node name="alien-bullet1" type="Area2D"]
 
@@ -114,6 +124,17 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 color/color_ramp = SubResource( 3 )
+
+[node name="sounds" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 4 )
+config/pitch_random = 0.0
 
 [connection signal="area_enter" from="." to="." method="_on_alienbullet1_area_enter"]
 

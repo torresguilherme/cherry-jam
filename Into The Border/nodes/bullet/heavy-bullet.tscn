@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/bullet/player-bullet1.gd" type="Script" id=1]
 [ext_resource path="res://sprites/bullet/heavy_bullet.png" type="Texture" id=2]
+[ext_resource path="res://sfx/heavy-cancel.wav" type="Sample" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -54,6 +55,15 @@ tracks/2/keys = {
 
 offsets = FloatArray( 0.00584795, 0.339181, 0.578947, 0.777778, 1 )
 colors = ColorArray( 0.984466, 0.992188, 0.00387573, 1, 0.929688, 0.511033, 0.141632, 1, 0.685033, 0.226846, 0.10436, 1, 1, 0, 0, 1, 0, 0, 0, 1 )
+
+[sub_resource type="SampleLibrary" id=4]
+
+samples/heavy-cancel = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 3 )
+}
 
 [node name="heavy-bullet" type="Area2D"]
 
@@ -115,6 +125,17 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 color/color_ramp = SubResource( 3 )
+
+[node name="sounds" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 4 )
+config/pitch_random = 0.0
 
 [connection signal="area_enter" from="." to="." method="_on_heavybullet_area_enter"]
 

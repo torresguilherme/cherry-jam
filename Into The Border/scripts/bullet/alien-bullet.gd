@@ -7,6 +7,7 @@ var max_range = 1000
 var distance_covered = 0
 var disable = false
 onready var anim = get_node("anim")
+onready var sounds = get_node("sounds")
 
 func _ready():
 	add_to_group(global.E_BULLET_GROUP)
@@ -23,6 +24,7 @@ func _on_alienbullet1_area_enter( area ):
 		if area.is_in_group(global.PLAYER_GROUP):
 			area.get_node("../").TakeDamage(damage)
 		if area.is_in_group(global.PLAYER_GROUP) || area.is_in_group(global.CONSTRAINT_GROUP):
+			sounds.play("alien-bullet-destruct")
 			anim.play("destruct")
 
 func Deactivate():

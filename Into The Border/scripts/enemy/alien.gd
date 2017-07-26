@@ -105,12 +105,14 @@ func _process(delta):
 			anim.set_current_animation("right")
 
 func Shoot1(direction):
+	sounds.play("alien-fire")
 	var new = bullet.instance()
 	new.direction = -direction
 	new.set_global_pos(get_global_pos())
 	level.add_child(new)
 
 func Shoot2(direction):
+	sounds.play("knife-fire")
 	var new = []
 	for i in range(knife_shot_speeds.size()):
 		new.append(knife.instance())

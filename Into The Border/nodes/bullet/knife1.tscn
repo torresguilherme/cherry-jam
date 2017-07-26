@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/bullet/knife.gd" type="Script" id=1]
 [ext_resource path="res://sprites/bullet/knife2.png" type="Texture" id=2]
+[ext_resource path="res://nodes/bullet/sounds.tscn" type="PackedScene" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -187,6 +188,8 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 color/color_ramp = SubResource( 5 )
+
+[node name="sounds" parent="." instance=ExtResource( 3 )]
 
 [connection signal="area_enter" from="." to="." method="_on_knife_area_enter"]
 

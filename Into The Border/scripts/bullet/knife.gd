@@ -7,6 +7,7 @@ var disable = false
 var max_range = 1000
 var distance_covered = 0
 onready var anim = get_node("anim")
+onready var sounds = get_node("sounds")
 
 func _ready():
 	add_to_group(global.E_BULLET_GROUP)
@@ -24,6 +25,7 @@ func _on_knife_area_enter( area ):
 			area.get_node("../").TakeDamage(damage)
 			anim.play("damage")
 		elif area.is_in_group(global.CONSTRAINT_GROUP):
+			sounds.play("knife-destruct")
 			anim.play("destruct")
 
 func Deactivate():
