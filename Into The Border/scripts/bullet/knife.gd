@@ -15,8 +15,7 @@ func _ready():
 
 func _process(delta):
 	set_global_pos(get_global_pos() + Vector2(direction * speed * delta))
-	if distance_covered > max_range:
-		disable = true
+	if distance_covered > max_range && !disable:
 		anim.play("destruct")
 
 func _on_knife_area_enter( area ):

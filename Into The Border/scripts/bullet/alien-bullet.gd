@@ -15,8 +15,7 @@ func _ready():
 func _process(delta):
 	set_global_pos(get_global_pos() + Vector2(direction * speed * delta))
 	distance_covered += speed * delta
-	if distance_covered > max_range:
-		disable = true
+	if distance_covered > max_range && !disable:
 		anim.play("destruct")
 
 func _on_alienbullet1_area_enter( area ):
@@ -24,7 +23,6 @@ func _on_alienbullet1_area_enter( area ):
 		if area.is_in_group(global.PLAYER_GROUP):
 			area.get_node("../").TakeDamage(damage)
 		if area.is_in_group(global.PLAYER_GROUP) || area.is_in_group(global.CONSTRAINT_GROUP):
-			disable = true
 			anim.play("destruct")
 
 func Deactivate():
