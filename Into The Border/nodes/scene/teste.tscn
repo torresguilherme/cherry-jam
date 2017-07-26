@@ -41,6 +41,7 @@ transform/pos = Vector2( 818.57, -64.9802 )
 
 [node name="walls" type="Node2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 64, 64 )
 
 [node name="rock" parent="walls" instance=ExtResource( 3 )]

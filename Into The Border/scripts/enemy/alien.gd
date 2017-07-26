@@ -82,8 +82,8 @@ func _process(delta):
 	#############################################
 	### MOVEMENT
 	#############################################
-	if attacking && distance_from_initial_pos <= walk_max_distance:
-		if get_global_pos().distance_to(player_pos) >= attack_min_distance:
+	if attacking:
+		if get_global_pos().distance_to(player_pos) >= attack_min_distance && distance_from_initial_pos <= walk_max_distance:
 			move(Vector2(-walking_direction * speed * delta))
 		elif get_global_pos().distance_to(player_pos) <= flee_distance:
 			move(Vector2(walking_direction * speed * delta))
@@ -92,6 +92,16 @@ func _process(delta):
 		walking_direction = Vector2((get_global_pos().x - initial_pos.x)/module, (get_global_pos().y - initial_pos.y)/module)
 		move(Vector2(-walking_direction * speed * delta))
 	distance_from_initial_pos = get_global_pos().distance_to(initial_pos)
+	
+	#############################################
+	### ANIMATION
+	#############################################
+	if walking_direction.x > 0:
+		if anim.get_current_animation() != "left":
+			anim.set_current_animation("left")
+	else:
+		if anim.get_current_animation() != "right":
+			anim.set_current_animation("right")
 
 func Shoot1(direction):
 	var new = bullet.instance()
