@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=1]
+[gd_scene load_steps=33 format=1]
 
 [ext_resource path="res://scripts/player/player-main.gd" type="Script" id=1]
 [ext_resource path="res://sprites/player/walk-r2.png" type="Texture" id=2]
@@ -13,6 +13,11 @@
 [ext_resource path="res://nodes/player/gun.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/player/blink-control-l.gd" type="Script" id=12]
 [ext_resource path="res://scripts/player/blink-control-r.gd" type="Script" id=13]
+[ext_resource path="res://sfx/blink.wav" type="Sample" id=14]
+[ext_resource path="res://sfx/heal.wav" type="Sample" id=15]
+[ext_resource path="res://sfx/heavy-shot.wav" type="Sample" id=16]
+[ext_resource path="res://sfx/light-shot.wav" type="Sample" id=17]
+[ext_resource path="res://sfx/player-hurt.wav" type="Sample" id=18]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -114,7 +119,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=5]
 
 resource/name = "fail"
 length = 0.5
@@ -131,9 +136,8 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
-resource/name = "air-l"
 length = 1.0
 loop = true
 step = 0.1
@@ -158,9 +162,8 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
-resource/name = "air-r"
 length = 1.0
 loop = true
 step = 0.1
@@ -185,7 +188,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 
 length = 1.0
 loop = true
@@ -211,7 +214,7 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 length = 1.0
 loop = true
@@ -237,9 +240,8 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
-resource/name = "walk-l"
 length = 0.4
 loop = true
 step = 0.1
@@ -264,9 +266,8 @@ tracks/1/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
-resource/name = "walk-r"
 length = 0.4
 loop = true
 step = 0.1
@@ -291,9 +292,8 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
-resource/name = "damage"
 length = 1.0
 loop = false
 step = 0.1
@@ -312,6 +312,39 @@ tracks/0/keys = {
 
 offsets = FloatArray( 0.00469484, 0.389671, 0.713615 )
 colors = ColorArray( 0.386719, 0.386719, 0.386719, 1, 0.535156, 0.535156, 0.535156, 1, 1, 1, 1, 1 )
+
+[sub_resource type="SampleLibrary" id=14]
+
+samples/blink = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 14 )
+}
+samples/heal = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 15 )
+}
+samples/heavy-shot = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 16 )
+}
+samples/light-shot = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 17 )
+}
+samples/player-hurt = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 18 )
+}
 
 [node name="player" type="RigidBody2D"]
 
@@ -373,7 +406,7 @@ playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/blink-left = SubResource( 3 )
 anims/blink-right = SubResource( 4 )
-anims/fail = SubResource( 12 )
+anims/fail = SubResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -384,12 +417,12 @@ autoplay = ""
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/air-l = SubResource( 5 )
-anims/air-r = SubResource( 6 )
-anims/idle-l = SubResource( 7 )
-anims/idle-r = SubResource( 8 )
-anims/walk-l = SubResource( 9 )
-anims/walk-r = SubResource( 10 )
+anims/air-l = SubResource( 6 )
+anims/air-r = SubResource( 7 )
+anims/idle-l = SubResource( 8 )
+anims/idle-r = SubResource( 9 )
+anims/walk-l = SubResource( 10 )
+anims/walk-r = SubResource( 11 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -400,7 +433,7 @@ autoplay = "idle-r"
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/damage = SubResource( 11 )
+anims/damage = SubResource( 12 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -463,5 +496,16 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 color/color_ramp = SubResource( 13 )
+
+[node name="sounds" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 14 )
+config/pitch_random = 0.0
 
 

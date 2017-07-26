@@ -48,6 +48,7 @@ onready var damage_anim = get_node("damage-anim")
 onready var gun = get_node("gun")
 onready var hitbox = get_node("hitbox")
 onready var shootpoint = gun.get_node("shoot-point")
+onready var sounds = get_node("sounds")
 
 func _ready():
 	add_to_group(global.PLAYER_BODY_GROUP)
@@ -103,12 +104,14 @@ func _process(delta):
 	#############################################
 	if Input.is_action_pressed("blink_left") && last_blink <= 0 && !disable:
 		if can_blink_left:
+			sounds.play("blink")
 			anim.play("blink-left")
 			last_blink = blink_cooldown
 		else:
 			anim.play("fail")
 	elif Input.is_action_pressed("blink_right") && last_blink <= 0 && !disable:
 		if can_blink_right:
+			sounds.play("blink")
 			anim.play("blink-right")
 			last_blink = blink_cooldown
 		else:
@@ -121,10 +124,12 @@ func _process(delta):
 	#############################################
 	if Input.is_action_pressed("fast_shoot") && !disable:
 		if last_shot <= 0:
+			sounds.play("light-shot")
 			fast_shot()
 			last_shot = fast_shot_cooldown
 	if Input.is_action_pressed("heavy_shoot") && !disable:
 		if last_shot <= 0:
+			sounds.play("heavy-shot")
 			heavy_shot()
 			last_shot = heavy_shot_cooldown
 	if last_shot > 0:
@@ -171,6 +176,7 @@ func LoadSpeed():
 
 func TakeDamage(damage):
 	if invulnerable <= 0:
+		sounds.play("player-hurt")
 		invulnerable = invulnerability_time
 		hp -= damage
 		if hp > 0:
@@ -179,3 +185,7 @@ func TakeDamage(damage):
 		else:
 			#damage_anim.play("death")
 			print("ded")
+
+func Heal(value):
+	sounds.play("heal")
+	hp += value

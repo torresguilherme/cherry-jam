@@ -28,6 +28,7 @@ onready var hitbox = get_node("hitbox")
 onready var anim = get_node("anim")
 onready var damage_anim = get_node("damage-anim")
 onready var level = get_node("../")
+onready var sounds = get_node("sounds")
 
 #bullets
 var bullet = preload("res://nodes/bullet/alien-bullet1.tscn")
@@ -121,6 +122,8 @@ func Shoot2(direction):
 func TakeDamage(value):
 	hp -= value
 	if hp > 0:
+		sounds.play("enemy-hurt")
 		damage_anim.play("damage")
 	else:
+		sounds.play("enemy-death")
 		damage_anim.play("death")
