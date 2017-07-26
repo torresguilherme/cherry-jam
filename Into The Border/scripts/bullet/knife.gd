@@ -4,6 +4,8 @@ var speed = 200
 var direction = Vector2(0, 0)
 var damage = 1
 var disable = false
+var max_range = 1000
+var distance_covered = 0
 onready var anim = get_node("anim")
 
 func _ready():
@@ -13,6 +15,9 @@ func _ready():
 
 func _process(delta):
 	set_global_pos(get_global_pos() + Vector2(direction * speed * delta))
+	if distance_covered > max_range:
+		disable = true
+		anim.play("destruct")
 
 func _on_knife_area_enter( area ):
 	if !disable:

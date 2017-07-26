@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/bullet/alien-bullet.gd" type="Script" id=1]
 [ext_resource path="res://sprites/bullet/alien-bullet1.png" type="Texture" id=2]
@@ -7,6 +7,53 @@
 
 custom_solver_bias = 0.0
 radius = 13.9442
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "destruct"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Particles2D:config/emitting")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visibility/visible")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "Deactivate"
+}, {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="ColorRamp" id=3]
+
+offsets = FloatArray( 0, 0.305164, 0.633803, 1 )
+colors = ColorArray( 0.0162506, 0.277344, 0.0386883, 1, 0.091217, 0.382812, 0.116276, 0.906353, 0.246918, 0.726562, 0.288137, 0.60851, 1, 1, 1, 0 )
 
 [node name="alien-bullet1" type="Area2D"]
 
@@ -30,6 +77,43 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/destruct = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+config/amount = 32
+config/lifetime = 1.0
+config/emit_timeout = 0.2
+config/emitting = false
+config/process_mode = 1
+config/explosiveness = 0.2
+params/direction = 0.0
+params/spread = 360.0
+params/linear_velocity = 40.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 9.8
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 16.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color_ramp = SubResource( 3 )
 
 [connection signal="area_enter" from="." to="." method="_on_alienbullet1_area_enter"]
 
