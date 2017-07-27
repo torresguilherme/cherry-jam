@@ -35,7 +35,7 @@ var bullet = preload("res://nodes/bullet/alien-bullet1.tscn")
 var knife = preload("res://nodes/bullet/knife.tscn")
 
 var module
-var walking_direction
+var walking_direction = Vector2(1, 0)
 
 func _ready():
 	initial_pos = get_global_pos()
