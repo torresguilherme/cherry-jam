@@ -20,7 +20,7 @@ var initial_pos
 var distance_from_initial_pos = 0
 
 #player localization
-onready var player = get_node("../").get_children()[0]
+onready var player = get_node("../").get_node("../").get_children()[0]
 var player_pos = Vector2(0, 0)
 var attacking = false
 var in_reach = false
