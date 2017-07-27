@@ -8,7 +8,7 @@ var shot_cooldown = 1
 var shot_cooldown2 = 2
 var shot_type = 0
 var last_shot = 0
-var knife_shot_speeds = [300, 250, 200]
+var knife_shot_speeds = [450, 400, 350]
 var firepoint_distances = []
 
 #movement
@@ -85,7 +85,7 @@ func _process(delta):
 					last_shot = short_cooldown
 			else:
 				Shoot2(walking_direction)
-				if shot_type == 12:
+				if shot_type == 13:
 					shot_type = 0
 					last_shot = shot_cooldown2
 				else:
@@ -122,6 +122,7 @@ func Shoot1(direction):
 	sounds.play("alien-fire")
 	var new = bullet.instance()
 	new.direction = -direction
+	new.speed = 400
 	new.set_global_pos(get_global_pos())
 	level.add_child(new)
 

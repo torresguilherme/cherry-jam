@@ -47,7 +47,6 @@ transform/pos = Vector2( 1601.02, -638.933 )
 
 [node name="walls" type="Node2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 64, 64 )
 
 [node name="rock" parent="walls" instance=ExtResource( 4 )]
@@ -55,6 +54,30 @@ transform/pos = Vector2( 64, 64 )
 [node name="rock10" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( -128, 0 )
+
+[node name="rock11" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -256, 0 )
+
+[node name="rock12" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -384, 0 )
+
+[node name="rock13" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -512, 0 )
+
+[node name="rock15" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -640, 0 )
+
+[node name="rock16" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -768, 0 )
+
+[node name="rock17" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -896, 0 )
 
 [node name="rock8" parent="walls" instance=ExtResource( 4 )]
 
@@ -68,37 +91,89 @@ transform/pos = Vector2( 896, 0 )
 
 transform/pos = Vector2( 0, 384 )
 
+[node name="rock18" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -767.953, -128.051 )
+
+[node name="rock19" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -768.091, -512.131 )
+
+[node name="rock14" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 895.794 )
+
 [node name="rock2" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 128, 384 )
+
+[node name="rock14 4" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 128, 895.794 )
 
 [node name="rock3" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 256, 384 )
 
+[node name="rock14 5" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 256, 895.794 )
+
 [node name="rock4" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 384, 384 )
+
+[node name="rock14 3" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 384, 895.794 )
 
 [node name="rock5" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 512, 384 )
 
+[node name="rock14 6" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 512, 895.794 )
+
 [node name="rock6" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 640, 384 )
+
+[node name="rock14 2" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 640, 895.794 )
 
 [node name="rock7" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 768, 384 )
 
+[node name="rock14 7" parent="walls" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 768, 895.502 )
+
 [node name="rock-1" parent="walls" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 0, 128 )
 
+[node name="rock-14 4" parent="walls" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -767.953, -384.051 )
+
+[node name="rock-145" parent="walls" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -768.091, -768.131 )
+
 [node name="rock-7" parent="walls" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( -128, 128 )
+
+[node name="rock-14 2" parent="walls" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -895.953, -384.051 )
+
+[node name="rock-143" parent="walls" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -896.091, -768.131 )
 
 [node name="rock-3" parent="walls" instance=ExtResource( 5 )]
 
@@ -112,9 +187,53 @@ transform/pos = Vector2( 896, 128 )
 
 transform/pos = Vector2( 0, 256 )
 
+[node name="rock-14" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -767.953, -256.051 )
+
+[node name="rock-15" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -768.091, -640.131 )
+
 [node name="rock-8" parent="walls" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -128, 256 )
+
+[node name="rock-14 3" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -895.953, -256.051 )
+
+[node name="rock-144" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -896.091, -640.131 )
+
+[node name="rock-9" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -128, 384 )
+
+[node name="rock-14 5" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -895.953, -128.051 )
+
+[node name="rock-146" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -896.091, -512.131 )
+
+[node name="rock-13" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -128, 895.794 )
+
+[node name="rock-10" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -128, 512 )
+
+[node name="rock-11" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -128, 640 )
+
+[node name="rock-12" parent="walls" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( -128, 768 )
 
 [node name="rock-4" parent="walls" instance=ExtResource( 6 )]
 
