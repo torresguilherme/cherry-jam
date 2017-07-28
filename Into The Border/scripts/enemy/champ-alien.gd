@@ -85,7 +85,7 @@ func _process(delta):
 					last_shot = short_cooldown
 			else:
 				Shoot2(walking_direction)
-				if shot_type == 13:
+				if shot_type == 12:
 					shot_type = 0
 					last_shot = shot_cooldown2
 				else:

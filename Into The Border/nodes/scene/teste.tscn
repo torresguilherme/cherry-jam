@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://nodes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/scene/components/rock.tscn" type="PackedScene" id=2]
@@ -11,6 +11,12 @@
 [ext_resource path="res://nodes/scene/components/heart.tscn" type="PackedScene" id=9]
 [ext_resource path="res://nodes/enemy/alien.tscn" type="PackedScene" id=10]
 [ext_resource path="res://nodes/enemy/champ-alien.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/ui/a.png" type="Texture" id=12]
+[ext_resource path="res://sprites/ui/d.png" type="Texture" id=13]
+[ext_resource path="res://sprites/ui/q.png" type="Texture" id=14]
+[ext_resource path="res://sprites/ui/e.png" type="Texture" id=15]
+[ext_resource path="res://sprites/ui/left-click.png" type="Texture" id=16]
+[ext_resource path="res://sprites/ui/right-click.png" type="Texture" id=17]
 
 [node name="teste" type="Node2D"]
 
@@ -124,6 +130,18 @@ transform/pos = Vector2( 128.086, -1408.02 )
 [node name="rock23964" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1280.13, -1408.02 )
+
+[node name="rock23965" parent="walls" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 1919.94, -1792.12 )
+
+[node name="rock23966" parent="walls" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 1407.88, -2176.05 )
+
+[node name="rock23967" parent="walls" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 1792.11, -2176.03 )
 
 [node name="rock12" parent="walls" instance=ExtResource( 2 )]
 
@@ -296,17 +314,14 @@ transform/pos = Vector2( 2432.2, 384.32 )
 [node name="rock334" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1792.14, 895.938 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock337 6" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 2432.28, 896.103 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock3377" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 2432.1, 1407.99 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock23 4" parent="walls" instance=ExtResource( 2 )]
 
@@ -379,17 +394,14 @@ transform/pos = Vector2( 2304.2, 384.32 )
 [node name="rock336" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1664.14, 895.938 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock337 5" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 2304.28, 896.103 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock3376" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 2304.1, 1407.99 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock23 6" parent="walls" instance=ExtResource( 2 )]
 
@@ -470,17 +482,14 @@ transform/pos = Vector2( 2432.24, 256.27 )
 [node name="rock335" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 1792.18, 767.888 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock337 4" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 2432.33, 768.052 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock3375" parent="walls" instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 2432.14, 1279.94 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock19" parent="walls" instance=ExtResource( 2 )]
 
@@ -821,17 +830,14 @@ transform/pos = Vector2( 2432.24, 0.269501 )
 [node name="rock-14104" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1792.18, 511.888 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-14106 6" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 2432.33, 512.052 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-141067" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 2432.14, 1023.94 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-145" parent="walls" instance=ExtResource( 3 )]
 
@@ -917,6 +923,14 @@ transform/pos = Vector2( 384.016, -1664.02 )
 
 transform/pos = Vector2( 1536.07, -1664.02 )
 
+[node name="rock-174" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1535.95, -2048.1 )
+
+[node name="rock-175" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2432.01, -2048.15 )
+
 [node name="rock-155" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 384.048, -1535.98 )
@@ -925,6 +939,14 @@ transform/pos = Vector2( 384.048, -1535.98 )
 
 transform/pos = Vector2( 1536.1, -1535.98 )
 
+[node name="rock-1573" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1535.98, -1920.06 )
+
+[node name="rock-1575 2" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2432.04, -1920.11 )
+
 [node name="rock-156" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 384.002, -1407.98 )
@@ -932,6 +954,26 @@ transform/pos = Vector2( 384.002, -1407.98 )
 [node name="rock-157 3" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1536.05, -1407.98 )
+
+[node name="rock-1576" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2175.86, -1792.08 )
+
+[node name="rock-1577" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1663.8, -2176.01 )
+
+[node name="rock-1578" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2048.03, -2175.99 )
+
+[node name="rock-1574" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1535.93, -1792.06 )
+
+[node name="rock-1575" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2431.99, -1792.11 )
 
 [node name="rock-149" parent="walls" instance=ExtResource( 3 )]
 
@@ -1041,6 +1083,14 @@ transform/pos = Vector2( 384.016, -1664.02 )
 
 transform/pos = Vector2( 1536.07, -1664.02 )
 
+[node name="rock-147963" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1535.95, -2048.1 )
+
+[node name="rock-147965" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2432.01, -2048.15 )
+
 [node name="rock-14794" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 384.048, -1535.98 )
@@ -1049,6 +1099,14 @@ transform/pos = Vector2( 384.048, -1535.98 )
 
 transform/pos = Vector2( 1536.1, -1535.98 )
 
+[node name="rock-14797" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1535.98, -1920.06 )
+
+[node name="rock-14798" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2432.04, -1920.11 )
+
 [node name="rock-14795" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 384.002, -1407.98 )
@@ -1056,6 +1114,26 @@ transform/pos = Vector2( 384.002, -1407.98 )
 [node name="rock-14796 3" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1536.05, -1407.98 )
+
+[node name="rock-147966" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2175.86, -1792.08 )
+
+[node name="rock-147967" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1663.8, -2176.01 )
+
+[node name="rock-147968" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2048.03, -2175.99 )
+
+[node name="rock-147964" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1535.93, -1792.06 )
+
+[node name="rock-147965 2" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2431.99, -1792.11 )
 
 [node name="rock-1476" parent="walls" instance=ExtResource( 3 )]
 
@@ -1140,17 +1218,14 @@ transform/pos = Vector2( 2304.24, 0.269501 )
 [node name="rock-1411" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1664.18, 511.888 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-1415" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 2304.33, 512.052 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-1416" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 2304.14, 1023.94 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-143" parent="walls" instance=ExtResource( 3 )]
 
@@ -1216,6 +1291,14 @@ transform/pos = Vector2( 256.016, -1664.02 )
 
 transform/pos = Vector2( 1408.07, -1664.02 )
 
+[node name="rock-1527" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1407.95, -2048.1 )
+
+[node name="rock-1528" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2304.01, -2048.15 )
+
 [node name="rock-1524" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 256.048, -1535.98 )
@@ -1224,6 +1307,14 @@ transform/pos = Vector2( 256.048, -1535.98 )
 
 transform/pos = Vector2( 1408.1, -1535.98 )
 
+[node name="rock-15263" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1407.98, -1920.06 )
+
+[node name="rock-15265 2" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2304.04, -1920.11 )
+
 [node name="rock-1525" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 256.002, -1407.98 )
@@ -1231,6 +1322,26 @@ transform/pos = Vector2( 256.002, -1407.98 )
 [node name="rock-1526 3" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1408.05, -1407.98 )
+
+[node name="rock-15266" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2047.86, -1792.08 )
+
+[node name="rock-15267" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1535.8, -2176.01 )
+
+[node name="rock-15268" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1920.03, -2175.99 )
+
+[node name="rock-15264" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1407.93, -1792.06 )
+
+[node name="rock-15265" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2303.99, -1792.11 )
 
 [node name="rock-148 4" parent="walls" instance=ExtResource( 3 )]
 
@@ -1364,6 +1475,14 @@ transform/pos = Vector2( 256.016, -1664.02 )
 
 transform/pos = Vector2( 1408.07, -1664.02 )
 
+[node name="rock-14893" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1407.95, -2048.1 )
+
+[node name="rock-14895" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2304.01, -2048.15 )
+
 [node name="rock-1482" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 256.048, -1535.98 )
@@ -1372,6 +1491,14 @@ transform/pos = Vector2( 256.048, -1535.98 )
 
 transform/pos = Vector2( 1408.1, -1535.98 )
 
+[node name="rock-1493" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1407.98, -1920.06 )
+
+[node name="rock-1494" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2304.04, -1920.11 )
+
 [node name="rock-1488" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 256.002, -1407.98 )
@@ -1379,6 +1506,26 @@ transform/pos = Vector2( 256.002, -1407.98 )
 [node name="rock-1489 3" parent="walls" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1408.05, -1407.98 )
+
+[node name="rock-14896" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2047.86, -1792.08 )
+
+[node name="rock-14897" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1535.8, -2176.01 )
+
+[node name="rock-14898" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1920.03, -2175.99 )
+
+[node name="rock-14894" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1407.93, -1792.06 )
+
+[node name="rock-14895 2" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 2303.99, -1792.11 )
 
 [node name="rock-1474" parent="walls" instance=ExtResource( 3 )]
 
@@ -1523,17 +1670,14 @@ transform/pos = Vector2( 2432.24, 128.27 )
 [node name="rock-233" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1792.18, 639.888 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-234 3" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 2432.33, 640.052 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-2344" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 2432.14, 1151.94 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-15" parent="walls" instance=ExtResource( 4 )]
 
@@ -1738,17 +1882,14 @@ transform/pos = Vector2( 2304.24, 128.27 )
 [node name="rock-14103" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1664.18, 639.888 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-14106 5" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 2304.33, 640.052 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-141066" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 2304.14, 1151.94 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-144" parent="walls" instance=ExtResource( 4 )]
 
@@ -1929,17 +2070,14 @@ transform/pos = Vector2( 2304.24, 256.27 )
 [node name="rock-14105" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1664.18, 767.888 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-14106 3" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 2304.33, 768.052 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-141064" parent="walls" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 2304.14, 1279.94 )
-transform/scale = Vector2( 1, 1 )
 
 [node name="rock-146" parent="walls" instance=ExtResource( 4 )]
 
@@ -2163,8 +2301,6 @@ transform/pos = Vector2( 256.091, 1408 )
 
 [node name="aesth" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="torch" parent="aesth" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 237, 95 )
@@ -2200,6 +2336,14 @@ transform/pos = Vector2( 726.196, -981.231 )
 [node name="torch9" parent="aesth" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 1145.51, -981.231 )
+
+[node name="torch25" parent="aesth" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1806.63, -1918.51 )
+
+[node name="torch26" parent="aesth" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 2202.74, -1921.3 )
 
 [node name="torch10" parent="aesth" instance=ExtResource( 5 )]
 
@@ -2292,6 +2436,22 @@ transform/pos = Vector2( -1208.09, -961.066 )
 
 transform/pos = Vector2( 1258.31, -320.618 )
 
+[node name="stalagmite37" parent="aesth" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 993.788, -1216.71 )
+
+[node name="stalagmite38" parent="aesth" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1239.86, -1216.71 )
+
+[node name="stalagmite30" parent="aesth" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2043.47, -1600.18 )
+
+[node name="stalagmite32" parent="aesth" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1906.08, -1984.67 )
+
 [node name="stalagmite17" parent="aesth" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 688.86, 575.904 )
@@ -2315,6 +2475,11 @@ transform/pos = Vector2( 1494.31, -320.618 )
 [node name="stalagmite3" parent="aesth" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( -454.355, -829.817 )
+flip_v = true
+
+[node name="stalagmite40" parent="aesth" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1293.97, -573.895 )
 flip_v = true
 
 [node name="stalagmite 2" parent="aesth" instance=ExtResource( 7 )]
@@ -2373,6 +2538,14 @@ transform/pos = Vector2( -603.304, -575.521 )
 
 transform/pos = Vector2( 1123.48, -321.048 )
 
+[node name="stalagmite36" parent="aesth" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 720.043, -1214.9 )
+
+[node name="stalagmite31" parent="aesth" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 2231.56, -1599.89 )
+
 [node name="stalagmite20" parent="aesth" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 510.363, 1085.63 )
@@ -2400,6 +2573,26 @@ transform/pos = Vector2( 438.625, 576.496 )
 [node name="stalagmite5" parent="aesth" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 252.293, -831.841 )
+flip_v = true
+
+[node name="stalagmite35" parent="aesth" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 747.524, -830.811 )
+flip_v = true
+
+[node name="stalagmite39" parent="aesth" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1553.39, -574.492 )
+flip_v = true
+
+[node name="stalagmite33" parent="aesth" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 2017.99, -1854.68 )
+flip_v = true
+
+[node name="stalagmite34" parent="aesth" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 2175.02, -1854.68 )
 flip_v = true
 
 [node name="fg" type="Node2D" parent="."]
@@ -2539,5 +2732,41 @@ transform/pos = Vector2( 475.137, 588.666 )
 [node name="champ-alien1" parent="enemies" instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 1746.83, -1603.62 )
+
+[node name="tuts" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/scale = Vector2( 2, 2 )
+z/z = -3
+
+[node name="a" type="Sprite" parent="tuts"]
+
+transform/pos = Vector2( -719.014, -664.352 )
+texture = ExtResource( 12 )
+
+[node name="d" type="Sprite" parent="tuts"]
+
+transform/pos = Vector2( -633.816, -663.882 )
+texture = ExtResource( 13 )
+
+[node name="q" type="Sprite" parent="tuts"]
+
+transform/pos = Vector2( -540.312, -445.705 )
+texture = ExtResource( 14 )
+
+[node name="e" type="Sprite" parent="tuts"]
+
+transform/pos = Vector2( -441.868, -446.602 )
+texture = ExtResource( 15 )
+
+[node name="left" type="Sprite" parent="tuts"]
+
+transform/pos = Vector2( 16.8191, -506.674 )
+texture = ExtResource( 16 )
+
+[node name="right" type="Sprite" parent="tuts"]
+
+transform/pos = Vector2( 227.057, 75.6857 )
+texture = ExtResource( 17 )
 
 
