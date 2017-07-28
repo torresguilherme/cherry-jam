@@ -49,6 +49,7 @@ onready var gun = get_node("gun")
 onready var hitbox = get_node("hitbox")
 onready var shootpoint = gun.get_node("shoot-point")
 onready var sounds = get_node("sounds")
+onready var hud = level.get_node("hud")
 
 func _ready():
 	add_to_group(global.PLAYER_BODY_GROUP)
@@ -181,11 +182,12 @@ func TakeDamage(damage):
 		hp -= damage
 		if hp > 0:
 			damage_anim.play("damage")
-			print("dano")
+			hud.RemoveHeart()
 		else:
 			#damage_anim.play("death")
-			print("ded")
+			pass
 
 func Heal(value):
 	sounds.play("heal")
+	hud.AddHeart()
 	hp += value

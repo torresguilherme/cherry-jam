@@ -38,7 +38,6 @@ var module
 var walking_direction = Vector2(1, 0)
 
 func _ready():
-	print(player)
 	initial_pos = get_global_pos()
 	set_process(true)
 
