@@ -6,4 +6,4 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_pressed("ui_select"):
-		global.NextScene()
+		global.NextScene(0)

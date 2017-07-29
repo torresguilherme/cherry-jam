@@ -10,4 +10,4 @@ func Text(value):
 		set_text("INTO THE BORDER")
 
 func NextScene():
-	global.NextScene()
+	global.NextScene(1)

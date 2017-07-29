@@ -184,8 +184,7 @@ func TakeDamage(damage):
 			damage_anim.play("damage")
 			hud.RemoveHeart()
 		else:
-			#damage_anim.play("death")
-			pass
+			get_node("../").get_node("scene-anim").play("game-over")
 
 func Heal(value):
 	sounds.play("heal")
